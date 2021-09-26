@@ -29,8 +29,8 @@ foreach ($_POST['id'] as $index => $id){
     }
     
   }
+  echo "<pre>";
+  print_r($data);
+  echo "</pre>";
 }
-echo "<pre>";
-print_r($data);
-echo "</pre>";
-to($_SERVER['HTTP_REFERER']);
+// to($_SERVER['HTTP_REFERER']);
