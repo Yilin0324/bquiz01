@@ -3,7 +3,7 @@
 <h3 class='cent'>編輯次選單</h3>
 <hr>
 
-<form action="api/submenu.php" method="post" enctype="multipart/form-data">
+<form action="api/manage.php" method="post" enctype="multipart/form-data">
 <table style="margin:auto;text-align:center" id='sub'>
     <tr>
         <td>次選單名稱</td>
@@ -22,6 +22,8 @@
             <input type="checkbox" name="del[]" value="<?=$value['id'];?>">
         </td>
         <input type="hidden" name="id[]" value="<?=$value['id'];?>">
+        <!-- 要抓主選單的id那筆 -->
+        <input type="hidden" name="parent[]" value="<?=$_GET['id'];?>">
     </tr>
     <?php
         }
@@ -32,8 +34,6 @@
     <input type="submit" value="修改確定">
     <input type="reset" value="重置">
     <input type="button" value="更多次選單" onclick="more()">
-    <!-- 要抓主選單的id那筆 -->
-    <input type="hidden" name="parent" value="<?=$_GET['id'];?>">
     <input type="hidden" name="table" value="menu">
 </div>
 </form>
@@ -42,13 +42,14 @@
 function more(){
     let str=`
                 <tr>
-                    <td ><input type="text" name="text2[]"></td>
-                    <td><input type="text" name="href2[]"></td>
+                    <td><input type="text" name="text[]" value=""></td>
+                    <td><input type="text" name="href[]" value=""></td>
+                    <td><input type="hidden" name="id[]" value=""></td>
+                    <td><input type="hidden" name="parent[]" value="<?=$_GET['id'];?>"></td>
                 </tr>
             `
     $("#sub").append(str)
 
 }
-
 
 </script>
