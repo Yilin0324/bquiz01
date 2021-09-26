@@ -22,7 +22,6 @@ foreach ($_POST['id'] as $index => $id){
       move_uploaded_file($file['tmp_name'],"../img/".$file['name']);
       $data['img']=$file['name'];
     }
-
     if($data){
       if(!$data['id']) unset($data['id']);
       $db->save($data);
@@ -33,4 +32,4 @@ foreach ($_POST['id'] as $index => $id){
   print_r($data);
   echo "</pre>";
 }
-// to($_SERVER['HTTP_REFERER']);
+to($_SERVER['HTTP_REFERER']);

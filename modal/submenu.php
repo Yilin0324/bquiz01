@@ -22,6 +22,8 @@
             <input type="checkbox" name="del[]" value="<?=$value['id'];?>">
         </td>
         <input type="hidden" name="id[]" value="<?=$value['id'];?>">
+        <!-- 要抓主選單的id那筆 -->
+        <input type="hidden" name="parent[]" value="<?=$_GET['id'];?>">
     </tr>
     <?php
         }
@@ -32,8 +34,6 @@
     <input type="submit" value="修改確定">
     <input type="reset" value="重置">
     <input type="button" value="更多次選單" onclick="more()">
-    <!-- 要抓主選單的id那筆 -->
-    <input type="hidden" name="parent[]" value="<?=$_GET['id'];?>">
     <input type="hidden" name="table" value="menu">
 </div>
 </form>
@@ -42,15 +42,17 @@
 function more(){
     let str=`
                 <tr>
-                    <td ><input type="text" name="text[]"></td>
-                    <td><input type="text" name="href[]"></td>
+                    <td><input type="text" name="text[]" value=""></td>
+                    <td><input type="text" name="href[]" value=""></td>
                     <td><input type="hidden" name="id[]" value=""></td>
-                    <td><input type="hidden" name="parent[]" value="<?=$_GET['id']?>"></td>
+                    <td><input type="hidden" name="parent[]" value="<?=$_GET['id'];?>"></td>
                 </tr>
             `
     $("#sub").append(str)
 
 }
 
-
+//   function moremenu(){
+//    $('.lol').append('<tr><td><input type="text" name="title[]"value=""></td><td><input type="text" name="text[]" value=""><input type="hidden" name="id[]" value=""><input type="hidden" name="MID[]" value="<?=$_GET['id']?>"></td></tr>')
+//  }
 </script>
